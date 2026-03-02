@@ -5,7 +5,7 @@ excerpt: En Resistance Room somos grandes admiradores del séptimo arte y
   seguimos de cerca aquellas películas relacionadas con el mundo del escape
   room. Por eso vamos a hablarte de algunos de los títulos más espectaculares y
   envolventes de la historia. ¿Te gustaría saber cuáles son? En ese caso, sigue
-  leyendo.
+  leyendo!
 content: >-
   Puede que esta actividad de ocio te resulte algo novedosa. Si aún no sabes de
   que se trata, te recomendamos nuestro artículo: “[Que es un escape
