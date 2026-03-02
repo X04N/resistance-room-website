@@ -2,14 +2,46 @@
   "title": "Tarifas",
   "subtitle": "Elige el número de jugadores y reserva tu aventura",
   "tiers": [
-    {"players": "2", "price": "90", "popular": false},
-    {"players": "3", "price": "100", "popular": false},
-    {"players": "4", "price": "110", "popular": false},
-    {"players": "5", "price": "125", "popular": true},
-    {"players": "6", "price": "150", "popular": false},
-    {"players": "7", "price": "175", "popular": false},
-    {"players": "8", "price": "200", "popular": false},
-    {"players": "9", "price": "225", "popular": false}
+    {
+      "players": "2",
+      "price": "90",
+      "popular": false
+    },
+    {
+      "players": "3",
+      "price": "100",
+      "popular": false
+    },
+    {
+      "players": "4",
+      "price": "110",
+      "popular": true
+    },
+    {
+      "players": "5",
+      "price": "125",
+      "popular": true
+    },
+    {
+      "players": "6",
+      "price": "150",
+      "popular": true
+    },
+    {
+      "players": "7",
+      "price": "175",
+      "popular": true
+    },
+    {
+      "players": "8",
+      "price": "200",
+      "popular": false
+    },
+    {
+      "players": "9",
+      "price": "225",
+      "popular": false
+    }
   ],
   "nightSession": {
     "title": "Sesión Nocturna",
@@ -19,8 +51,7 @@
   "included": [
     "60 minutos de juego",
     "Game Master dedicado",
-    "Fotos y vídeos de la experiencia",
-    "Briefing y debriefing",
-    "Certificado digital"
+    "Fotos de recuerdo",
+    "Briefing y debriefing"
   ]
 }
