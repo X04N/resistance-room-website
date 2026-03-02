@@ -2,6 +2,34 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { blogPosts } from '../data/blog';
 import { FaCalendar, FaUser, FaTag, FaArrowLeft } from 'react-icons/fa';
 
+// Simple markdown to HTML converter for basic formatting
+const markdownToHtml = (markdown: string): string => {
+  let html = markdown;
+  
+  // Headers
+  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+  html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+  html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+  
+  // Bold
+  html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
+  
+  // Italic
+  html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
+  
+  // Links
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>');
+  
+  // Images
+  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, '<img src="$2" alt="$1" />');
+  
+  // Line breaks and paragraphs
+  html = html.replace(/\n\n/g, '</p><p>');
+  html = '<p>' + html + '</p>';
+  
+  return html;
+};
+
 export const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
@@ -75,8 +103,9 @@ export const BlogPostPage = () => {
             prose-strong:text-white
             prose-ul:text-gray-300 prose-ul:my-6
             prose-li:my-2
+            prose-img:rounded-lg prose-img:my-8
           "
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
         />
 
         {/* CTA */}

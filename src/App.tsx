@@ -24,10 +24,8 @@ function App() {
         <Route path="/blog/" element={<BlogPage />} />
         <Route path="/terminos-y-condiciones/" element={<TermsPage />} />
         <Route path="/politica-de-cookies/" element={<CookiePolicyPage />} />
-        {/* Blog post routes - specific slugs to avoid catching /admin */}
-        <Route path="/consejos-para-tu-primer-escape-room/" element={<BlogPostPage />} />
-        <Route path="/historia-escape-rooms/" element={<BlogPostPage />} />
-        <Route path="/escape-rooms-team-building/" element={<BlogPostPage />} />
+        {/* Blog post catch-all route - must be last to not catch other routes */}
+        <Route path="/:slug/" element={<BlogPostPage />} />
       </Routes>
     </Layout>
   )
