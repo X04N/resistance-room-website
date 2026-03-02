@@ -26,7 +26,7 @@ export const initGA = (measurementId: string) => {
 
   window.dataLayer = window.dataLayer || [];
   function gtag(...args: any[]) {
-    window.dataLayer.push(args);
+    window.dataLayer?.push(args);
   }
   window.gtag = gtag;
   
