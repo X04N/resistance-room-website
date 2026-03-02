@@ -180,14 +180,45 @@ const sampleBlogPosts: BlogPost[] = [
   }
 ];
 
-// Try to load CMS blog posts, fallback to sample posts
-const blogFiles = import.meta.glob<{ default: Omit<BlogPost, 'slug'> }>('/src/data/content/blog/*.md', { eager: true });
+// Try to load CMS blog posts as raw text, fallback to sample posts
+const blogFiles = import.meta.glob('/src/data/content/blog/*.md', { as: 'raw', eager: true });
 
-const cmsBlogPosts: BlogPost[] = Object.entries(blogFiles).map(([path, module]) => {
+// Simple frontmatter parser
+function parseFrontmatter(content: string): { data: any; content: string } {
+  const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+  const match = content.match(frontmatterRegex);
+  
+  if (!match) {
+    return { data: {}, content };
+  }
+  
+  const [, frontmatter, bodyContent] = match;
+  const data: any = {};
+  
+  frontmatter.split('\n').forEach(line => {
+    const [key, ...valueParts] = line.split(':');
+    if (key && valueParts.length) {
+      const value = valueParts.join(':').trim();
+      data[key.trim()] = value;
+    }
+  });
+  
+  return { data, content: bodyContent };
+}
+
+const cmsBlogPosts: BlogPost[] = Object.entries(blogFiles).map(([path, rawContent]) => {
   const slug = path.split('/').pop()?.replace('.md', '') || '';
+  const { data, content } = parseFrontmatter(rawContent as string);
+  
   return {
-    slug,
-    ...module.default
+    slug: data.slug || slug,
+    title: data.title || '',
+    excerpt: data.excerpt || '',
+    content: content,
+    author: data.author || 'The Resistance Room',
+    date: data.date || new Date().toISOString(),
+    category: data.category || 'General',
+    image: data.image || undefined
   };
 }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
