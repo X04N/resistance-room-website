@@ -1,0 +1,27 @@
+{
+  "siteTitle": "The Resistance Room - Escape Room Barcelona",
+  "siteDescription": "Escape Room en Barcelona. Únete a la resistencia humana y escapa de la lanzadera alienígena en 60 minutos. Experiencia inmersiva con tecnología Arduino. 2-9 jugadores.",
+  "contact": {
+    "phone": "688 90 50 20",
+    "email": "info@resistanceroom.com",
+    "city": "Barcelona, España",
+    "address": "La dirección exacta se enviará por email tras confirmar tu reserva"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/resistance_room",
+    "instagram": "https://www.instagram.com/resistance_room"
+  },
+  "hours": {
+    "monThu": "16:00 - 22:00",
+    "fri": "16:00 - 00:00",
+    "sat": "10:00 - 00:00",
+    "sun": "10:00 - 22:00"
+  },
+  "experience": {
+    "duration": 60,
+    "minPlayers": 2,
+    "maxPlayers": 9,
+    "language": "Español",
+    "altLanguage": "Inglés disponible bajo petición"
+  }
+}

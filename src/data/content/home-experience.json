@@ -1,0 +1,21 @@
+{
+  "title": "Una experiencia única",
+  "subtitle": "Sumérgete en una aventura donde cada segundo cuenta y cada decisión importa",
+  "features": [
+    {
+      "title": "Inmersión Total",
+      "description": "Tecnología Arduino y efectos especiales que te transportan a un futuro post-apocalíptico",
+      "icon": "FaVrCardboard"
+    },
+    {
+      "title": "Trabajo en Equipo",
+      "description": "Colabora con tu equipo para resolver enigmas y escapar de la lanzadera alienígena",
+      "icon": "FaUsers"
+    },
+    {
+      "title": "100% Real",
+      "description": "Mecanismos físicos y desafíos reales. No es virtual, es una experiencia tangible",
+      "icon": "FaCheckCircle"
+    }
+  ]
+}

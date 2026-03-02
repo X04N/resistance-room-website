@@ -1,0 +1,28 @@
+{
+  "title": "Reserva tu Aventura",
+  "subtitle": "Selecciona tu fecha y hora preferida para vivir la experiencia de escape de la lanzadera alienígena",
+  "widgetTitle": "Selecciona tu Sesión",
+  "giftTitle": "Bonos Regalo",
+  "importantInfo": [
+    {
+      "title": "Edad mínima",
+      "description": "Los menores de 16 años deben ir acompañados de un adulto."
+    },
+    {
+      "title": "Llegada",
+      "description": "Por favor, llega 10 minutos antes de tu sesión para el briefing inicial."
+    },
+    {
+      "title": "Cancelaciones",
+      "description": "Puedes cancelar o modificar tu reserva hasta 24 horas antes sin coste adicional."
+    },
+    {
+      "title": "Idioma",
+      "description": "Las sesiones son en español por defecto. Si necesitas la experiencia en inglés, indícalo en tu reserva."
+    },
+    {
+      "title": "Accesibilidad",
+      "description": "La sala requiere movilidad básica. Contacta con nosotros si tienes necesidades especiales."
+    }
+  ]
+}

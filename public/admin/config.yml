@@ -1,0 +1,215 @@
+# Production backend with GitHub
+backend:
+  name: git-gateway
+  branch: main
+
+# For local development/testing only:
+# backend:
+#   name: test-repo
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "es"
+
+collections:
+  # Site Settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "src/data/content/site-settings.json"
+        fields:
+          - {label: "Site Title", name: "siteTitle", widget: "string"}
+          - {label: "Site Description", name: "siteDescription", widget: "text"}
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "City", name: "city", widget: "string"}
+              - {label: "Address (sent after booking)", name: "address", widget: "text"}
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "Facebook URL", name: "facebook", widget: "string"}
+              - {label: "Instagram URL", name: "instagram", widget: "string"}
+          - label: "Opening Hours"
+            name: "hours"
+            widget: "object"
+            fields:
+              - {label: "Monday-Thursday", name: "monThu", widget: "string"}
+              - {label: "Friday", name: "fri", widget: "string"}
+              - {label: "Saturday", name: "sat", widget: "string"}
+              - {label: "Sunday", name: "sun", widget: "string"}
+          - label: "Experience Details"
+            name: "experience"
+            widget: "object"
+            fields:
+              - {label: "Duration (minutes)", name: "duration", widget: "number"}
+              - {label: "Min Players", name: "minPlayers", widget: "number"}
+              - {label: "Max Players", name: "maxPlayers", widget: "number"}
+              - {label: "Default Language", name: "language", widget: "string"}
+              - {label: "Alternative Language", name: "altLanguage", widget: "string"}
+
+  # Home Page
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "src/data/content/home-hero.json"
+        fields:
+          - {label: "Headline", name: "headline", widget: "string"}
+          - {label: "Highlighted Text", name: "highlight", widget: "string"}
+          - {label: "Subheadline", name: "subheadline", widget: "text"}
+          - {label: "Primary CTA Text", name: "primaryCTA", widget: "string"}
+          - {label: "Secondary CTA Text", name: "secondaryCTA", widget: "string"}
+          - {label: "Background Image URL", name: "bgImage", widget: "string"}
+      
+      - name: "experience"
+        label: "Experience Section"
+        file: "src/data/content/home-experience.json"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string"}
+          - {label: "Section Subtitle", name: "subtitle", widget: "text"}
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Icon Name", name: "icon", widget: "string", hint: "From react-icons (e.g., FaVrCardboard)"}
+      
+      - name: "pricing"
+        label: "Pricing Section"
+        file: "src/data/content/home-pricing.json"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string"}
+          - {label: "Section Subtitle", name: "subtitle", widget: "text"}
+          - label: "Pricing Tiers"
+            name: "tiers"
+            widget: "list"
+            fields:
+              - {label: "Number of Players", name: "players", widget: "string"}
+              - {label: "Price (EUR)", name: "price", widget: "string"}
+              - {label: "Popular", name: "popular", widget: "boolean", default: false}
+          - label: "Night Session"
+            name: "nightSession"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Price", name: "price", widget: "string"}
+          - label: "What's Included"
+            name: "included"
+            widget: "list"
+            field: {label: "Item", name: "item", widget: "string"}
+
+  # Booking Page
+  - name: "booking"
+    label: "Booking Page"
+    files:
+      - name: "booking"
+        label: "Booking Content"
+        file: "src/data/content/booking.json"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Page Subtitle", name: "subtitle", widget: "text"}
+          - {label: "Widget Section Title", name: "widgetTitle", widget: "string"}
+          - {label: "Gift Voucher Section Title", name: "giftTitle", widget: "string"}
+          - label: "Important Information"
+            name: "importantInfo"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+  # FAQ
+  - name: "faq"
+    label: "FAQ"
+    files:
+      - name: "faq"
+        label: "FAQ Items"
+        file: "src/data/faq.ts"
+        fields:
+          - label: "FAQ Categories"
+            name: "categories"
+            widget: "list"
+            field: {label: "Category", name: "category", widget: "string"}
+          - label: "FAQ Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Answer", name: "answer", widget: "text"}
+              - {label: "Category", name: "category", widget: "string"}
+
+  # Blog Posts
+  - name: "blog"
+    label: "Blog"
+    folder: "src/data/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Content", name: "content", widget: "markdown"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "select", options: ["Consejos", "Historia", "Empresas", "General"]}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+
+  # Pages
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "prices"
+        label: "Prices Page"
+        file: "src/data/content/prices.json"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Page Subtitle", name: "subtitle", widget: "text"}
+          - label: "Key Information"
+            name: "keyInfo"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+      
+      - name: "contact"
+        label: "Contact Page"
+        file: "src/data/content/contact.json"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Page Subtitle", name: "subtitle", widget: "text"}
+          - label: "Contact Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Content", name: "content", widget: "text"}
+      
+      - name: "what-is-escape-room"
+        label: "What is Escape Room Page"
+        file: "src/data/content/what-is-escape-room.json"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Page Subtitle", name: "subtitle", widget: "text"}
+          - {label: "Introduction", name: "intro", widget: "markdown"}
+          - label: "How It Works Steps"
+            name: "steps"
+            widget: "list"
+            fields:
+              - {label: "Step Title", name: "title", widget: "string"}
+              - {label: "Step Description", name: "description", widget: "text"}
+          - label: "Benefits"
+            name: "benefits"
+            widget: "list"
+            fields:
+              - {label: "Benefit Title", name: "title", widget: "string"}
+              - {label: "Benefit Description", name: "description", widget: "text"}
