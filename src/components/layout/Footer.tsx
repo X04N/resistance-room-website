@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import siteSettings from '../../data/content/site-settings.json';
 
 export const Footer = () => {
   return (
@@ -9,9 +10,9 @@ export const Footer = () => {
           <div>
             <h3 className="text-white font-bold mb-4">Contacto</h3>
             <div className="space-y-2 text-slate-400">
-              <p>📞 688 90 50 20</p>
-              <p>✉️ info@resistanceroom.com</p>
-              <p>📍 Barcelona, España</p>
+              <p>📞 {siteSettings.contact.phone}</p>
+              <p>✉️ {siteSettings.contact.email}</p>
+              <p>📍 {siteSettings.contact.city}</p>
             </div>
           </div>
 
@@ -39,7 +40,7 @@ export const Footer = () => {
             <h3 className="text-white font-bold mb-4">Síguenos</h3>
             <div className="space-y-2 mb-4">
               <a
-                href="https://www.facebook.com/TheResistanceRoom/"
+                href={siteSettings.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-slate-400 hover:text-green-400 transition-colors"
@@ -47,7 +48,7 @@ export const Footer = () => {
                 Facebook
               </a>
               <a
-                href="https://www.instagram.com/resistance_room/"
+                href={siteSettings.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-slate-400 hover:text-green-400 transition-colors"

@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import heroContent from '../../data/content/home-hero.json';
+import siteSettings from '../../data/content/site-settings.json';
 
 export const Hero = () => {
   return (
@@ -7,7 +9,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://www.resistanceroom.com/wp-content/uploads/photo-manipulation-1825450.jpg)',
+          backgroundImage: `url(${heroContent.bgImage})`,
         }}
       >
         {/* Dark gradient overlay for text readability */}
@@ -17,11 +19,11 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-          ¿Podrás escapar de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600">nave alienígena</span>?
+          {heroContent.headline} <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600">{heroContent.highlight}</span>?
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Únete a la resistencia humana en esta aventura post-apocalíptica. 60 minutos para escapar. ¿Estás listo?
+          {heroContent.subheadline}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -29,25 +31,25 @@ export const Hero = () => {
             to="/reservas-lanzadera-alien-nave-espacial/"
             className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-lg hover:from-green-600 hover:to-green-700 transition-all shadow-lg hover:shadow-green-500/50"
           >
-            Reserva Ahora
+            {heroContent.primaryCTA}
           </Link>
           
           <Link 
             to="/que-es-un-escape-room-2/"
             className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-lg hover:bg-white/20 transition-all"
           >
-            ¿Qué es un Escape Room?
+            {heroContent.secondaryCTA}
           </Link>
         </div>
 
         {/* Stats */}
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div className="text-center">
-            <div className="text-4xl font-bold text-green-500">60</div>
+            <div className="text-4xl font-bold text-green-500">{siteSettings.experience.duration}</div>
             <div className="text-sm text-gray-400 mt-1">minutos</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-green-500">2-9</div>
+            <div className="text-4xl font-bold text-green-500">{siteSettings.experience.minPlayers}-{siteSettings.experience.maxPlayers}</div>
             <div className="text-sm text-gray-400 mt-1">jugadores</div>
           </div>
           <div className="text-center">

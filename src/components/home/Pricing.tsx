@@ -1,39 +1,21 @@
 import { Link } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
+import pricingContent from '../../data/content/home-pricing.json';
 
 export const Pricing = () => {
-  const pricingTiers = [
-    { players: '2', price: '90' },
-    { players: '3', price: '100' },
-    { players: '4', price: '110' },
-    { players: '5', price: '125', popular: true },
-    { players: '6', price: '150' },
-    { players: '7', price: '175' },
-    { players: '8', price: '200' },
-    { players: '9', price: '225' },
-  ];
-
-  const includes = [
-    "60 minutos de juego",
-    "Game Master dedicado",
-    "Fotos y vídeos de la experiencia",
-    "Briefing y debriefing",
-    "Certificado digital"
-  ];
-
   return (
     <section id="precios" className="py-20 px-4 bg-slate-900/50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
-          Tarifas
+          {pricingContent.title}
         </h2>
         <p className="text-xl text-gray-400 text-center mb-16 max-w-2xl mx-auto">
-          Elige el número de jugadores y reserva tu aventura
+          {pricingContent.subtitle}
         </p>
 
         {/* Pricing Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {pricingTiers.map((tier, index) => (
+          {pricingContent.tiers.map((tier, index) => (
             <Link
               key={index}
               to="/reservas-lanzadera-alien-nave-espacial/"
@@ -68,13 +50,13 @@ export const Pricing = () => {
         {/* Night Session */}
         <div className="mb-12 p-8 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-xl border border-purple-500/50 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] text-center">
           <h3 className="text-2xl font-bold text-white mb-2">
-            Sesión Nocturna
+            {pricingContent.nightSession.title}
           </h3>
           <p className="text-gray-300 mb-4">
-            Experiencia especial después de las 22:00
+            {pricingContent.nightSession.description}
           </p>
           <div className="text-3xl font-bold text-purple-400 mb-4">
-            desde €150
+            {pricingContent.nightSession.price}
           </div>
           <Link 
             to="/reservas-lanzadera-alien-nave-espacial/"
@@ -90,7 +72,7 @@ export const Pricing = () => {
             Tu experiencia incluye
           </h3>
           <ul className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {includes.map((item, index) => (
+            {pricingContent.included.map((item, index) => (
               <li key={index} className="flex items-center text-gray-300">
                 <FaCheck className="text-green-500 mr-3 flex-shrink-0" />
                 <span>{item}</span>
