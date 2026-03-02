@@ -10,19 +10,19 @@
     },
     {
       "title": "Llegada",
-      "description": "Por favor, llega 10 minutos antes de tu sesión para el briefing inicial."
+      "description": "No lleguéis tarde o perderéis tiempo de partida!"
     },
     {
       "title": "Cancelaciones",
-      "description": "Puedes cancelar o modificar tu reserva hasta 24 horas antes sin coste adicional."
+      "description": "Una vez hecha la reserva no se devolverá el importe. Se puede hacer cambio de fecha si se avisa con más de 48h de antelación.."
     },
     {
       "title": "Idioma",
-      "description": "Las sesiones son en español por defecto. Si necesitas la experiencia en inglés, indícalo en tu reserva."
+      "description": "Las sesiones están disponibles en español y en Catalán."
     },
     {
       "title": "Accesibilidad",
-      "description": "La sala requiere movilidad básica. Contacta con nosotros si tienes necesidades especiales."
+      "description": "La sala está adaptada completamente para silla de ruedas y no requiere ninguna habilidad física."
     }
   ]
 }
