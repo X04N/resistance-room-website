@@ -9,7 +9,8 @@ export interface BlogPost {
   image?: string;
 }
 
-export const blogPosts: BlogPost[] = [
+// Sample/fallback blog posts (will be replaced by CMS posts)
+const sampleBlogPosts: BlogPost[] = [
   {
     slug: "consejos-para-tu-primer-escape-room",
     title: "10 Consejos para Tu Primer Escape Room",
@@ -179,4 +180,18 @@ export const blogPosts: BlogPost[] = [
   }
 ];
 
-export const blogCategories = ["Todos", "Consejos", "Historia", "Empresas"];
+// Try to load CMS blog posts, fallback to sample posts
+const blogFiles = import.meta.glob<{ default: Omit<BlogPost, 'slug'> }>('/src/data/content/blog/*.md', { eager: true });
+
+const cmsBlogPosts: BlogPost[] = Object.entries(blogFiles).map(([path, module]) => {
+  const slug = path.split('/').pop()?.replace('.md', '') || '';
+  return {
+    slug,
+    ...module.default
+  };
+}).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Export CMS posts if they exist, otherwise use sample posts
+export const blogPosts = cmsBlogPosts.length > 0 ? cmsBlogPosts : sampleBlogPosts;
+
+export const blogCategories = ["Todos", "Consejos", "Historia", "Empresas", "General"];
