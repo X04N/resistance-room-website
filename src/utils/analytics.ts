@@ -1,11 +1,7 @@
 import { getCookieConsent } from './cookies';
 
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
-  }
-}
+// Type declarations are in src/types/global.d.ts
+// No need to redeclare here
 
 let gaInitialized = false;
 
@@ -51,7 +47,7 @@ export const isGALoaded = (): boolean => {
 export const logPageView = (path: string, title: string) => {
   if (!isGALoaded()) return;
   
-  window.gtag('event', 'page_view', {
+  window.gtag?.('event', 'page_view', {
     page_path: path,
     page_title: title
   });
@@ -60,5 +56,5 @@ export const logPageView = (path: string, title: string) => {
 export const logEvent = (eventName: string, params?: object) => {
   if (!isGALoaded()) return;
   
-  window.gtag('event', eventName, params);
+  window.gtag?.('event', eventName, params);
 };
